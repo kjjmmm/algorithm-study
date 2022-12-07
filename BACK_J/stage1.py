@@ -87,8 +87,3 @@ def ques14():
     print("   `~\\/")
     print("      |")
     print("      |")
-
-ques14()
-
-
-
