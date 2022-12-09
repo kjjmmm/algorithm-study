@@ -51,8 +51,30 @@ def ques5():
     y = min % 60
     print(x, y)
 
-# def ques6():
+def ques6():
+    a, b = map(int, input().split())
+    c = int(input())
 
+    total_min = a*60 + b + c
+    if total_min >= 60 * 24:
+        total_min -= 60 * 24
 
-# ques6()
+    h = total_min // 60
+    m = total_min % 60
 
+    print(h,m)
+
+def ques7():
+    a, b, c = map(int, input().split())
+
+    arr = [a,b,c]
+    arr.sort()
+
+    if a==b and b==c:
+        print(10000+1000*a)
+    elif a==b or b==c or a==c:
+        print(1000+100*arr[1])
+    else :
+        print(arr[2] * 100)
+    
+ques7()
