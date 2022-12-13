@@ -20,8 +20,27 @@ def ques1():
             tmp_arr.append(str(arr1[i][j] + arr2[i][j]))
         a = " ".join(tmp_arr)
         print(a)
-    
 
-ques1()
+def ques2():
+    arr = [[0] for _ in range(9)]
+    n = 0 
+    m = 0
+    row_max = []
+    for i in range(9):
+        arr[i] = list(map(int,input().split()))
+        row_max.append(max(arr[i]))
+
+    result_mx = max(row_max)
+    print(result_mx)
+    for i in range(9):
+        for j in range(9):
+            if arr[i][j]==result_mx:
+                n=i
+                m=j
+                break;
+        
+    print(n+1,m+1)
+
+ques2()
 
 
