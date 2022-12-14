@@ -26,4 +26,26 @@ def ques2():
             sum+=cnt
         print(cnt+1)
 
-ques2()
+
+# 늙었다 ...... 이해가 좀 늦네
+def ques3():
+    n = int(input())
+    a=1 # 어느 라인에 있는가 ? 
+    while True:
+        if a*(a+1)/2>=n:
+            break;
+        a+=1
+
+    dif = int(a*(a+1)/2 - n)
+
+    b=0
+    c=0
+    if a % 2 == 0 : 
+        b = a - dif 
+        c = dif + 1
+    else :
+        b = 1 + dif
+        c = a - dif
+    print(f"{b}/{c}")
+
+ques3()
