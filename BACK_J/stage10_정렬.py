@@ -59,6 +59,66 @@ def ques5():
             print(i)   
 
 
-ques5()
+def ques6():
+    import sys
+    input = sys.stdin.readline
+
+    n = int(input())
+
+    arr=[]
+    count_arr=[0]*8001
+    for i in range(n):
+        num = int(input())
+        arr.append(num)
+        count_arr[num+4000]+=1
+    arr.sort()
+
+    tmp_arr=[]
+    for i in range(len(count_arr)):
+        if max(count_arr)==count_arr[i]:
+            tmp_arr.append(i-4000)
+    tmp_arr.sort()
+
+    result3=0
+    if len(tmp_arr)>1 :
+        result3=tmp_arr[1]
+    elif len(tmp_arr)==1:
+        result3=tmp_arr[0]
+            
+    result1=round(sum(arr)/n)
+    result2=arr[int((n-1)/2)]
+    result4=arr[-1]-arr[0]
+
+    print(result1)
+    print(result2)
+    print(result3)
+    print(result4)
     
+def ques7():
+    import sys
+    input = sys.stdin.readline
+
+    str_n = input()
+
+    arr = list(str_n)
+    arr.sort(reverse=True)
+    result = ''.join(arr)
+
+    print(result)
+
+def ques8():
+    import sys
+    input = sys.stdin.readline
+
+    n = int(input())
+
+    arr=[]
+    for i in range(n):
+        arr.append(list(map(int,input().split())))
+    arr.sort(key=lambda x : (x[0], x[1]))
     
+    for val in arr:
+        print(val[0],val[1])
+
+
+ques8()
