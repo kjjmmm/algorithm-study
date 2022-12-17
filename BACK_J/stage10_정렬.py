@@ -121,4 +121,59 @@ def ques8():
         print(val[0],val[1])
 
 
-ques8()
+def ques9():
+    import sys
+    imput = sys.stdin.readline
+    n = int(input())
+    arr=[]
+    for i in range(n):
+        arr.append(list(map(int,input().split())))
+    arr.sort(key=lambda x : (x[1], x[0]))
+
+    for val in arr:
+        print(val[0],val[1])
+
+def ques10():
+    n = int(input())
+
+    arr=[]
+    for i in range(n):
+        arr.append(input())
+    
+    arr  = list(set(arr))
+    arr.sort(key=lambda x : (len(x), x))
+    
+    for i in arr:
+        print(i)
+    
+def ques11():
+    n = int(input())
+    arr=[]
+    for i in range(n):
+       arr.append(input().split())
+    arr.sort(key=lambda x : int(x[0]))
+
+    for i in arr:
+        print(i[0], i[1])
+
+    
+def ques12():
+
+    import sys
+    input = sys.stdin.readline
+    input() #의미 없음
+
+    arr = list(map(int, input().split()))
+    ref_arr = list(set(arr))
+    ref_arr.sort()
+    
+    dic = {}
+
+    for i in range(len(ref_arr)):
+        dic[ref_arr[i]]=i
+    
+    result = ""
+    for val in arr:
+        print(dic[val], end=' ')
+    
+ques12()
