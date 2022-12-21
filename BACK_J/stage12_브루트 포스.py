@@ -60,6 +60,60 @@ def ques3():
         print(cnt+1, end=" ")
 
 
-ques3()
 
+# 와 어렵다... silver Class...
+def ques4():
+    a, b = map(int, input().split())
+
+    arr=[]
+    for i in range(a):
+        arr.append(input())
+
+    def ques4_sub(arr, x, y):
+        cnt1=0
+        for i in range(x[0],x[1]):
+            for j in range(y[0],y[1]):                
+                if i % 2 == 0 :
+                    if j % 2 == 0 and arr[i][j] != 'W':
+                        cnt1+=1
+                    if j % 2 == 1 and arr[i][j] != 'B':
+                        cnt1+=1
+                if i % 2 == 1 :
+                    if j % 2 == 0 and arr[i][j] != 'B':
+                        cnt1+=1
+                    if j % 2 == 1 and arr[i][j] != 'W':
+                        cnt1+=1
+        
+        cnt2=0
+        for i in range(x[0],x[1]):
+            for j in range(y[0],y[1]):     
+                if i % 2 == 0 :
+                    if j % 2 == 0 and arr[i][j] != 'B':
+                        cnt2+=1
+                    if j % 2 == 1 and arr[i][j] != 'W':
+                        cnt2+=1
+                if i % 2 == 1 :
+                    if j % 2 == 0 and arr[i][j] != 'W':
+                        cnt2+=1
+                    if j % 2 == 1 and arr[i][j] != 'B':
+                        cnt2+=1
+        
+        return(min([cnt1,cnt2]))
+    
+    x = []
+    for i in range(a-8+1):
+        x.append([i, i+8])
+    y = []
+    for i in range(b-8+1):
+        y.append([i, i+8])
+    
+
+    result_arr=[]
+    for i in range(len(x)):
+        for j in range(len(y)):
+            result_arr.append(ques4_sub(arr,x[i],y[j]))
+
+    print(min(result_arr));
+
+ques4()
 
