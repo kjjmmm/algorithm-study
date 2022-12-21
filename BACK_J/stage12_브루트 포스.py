@@ -43,6 +43,7 @@ def ques2():
         if ques2_sub(i)==n :
            print(i)
            break;
+
 def ques3():
     import sys
     input = sys.stdin.readline
@@ -58,7 +59,6 @@ def ques3():
             if arr[i][0] < arr[j][0] and arr[i][1] < arr[j][1]:
                 cnt+=1
         print(cnt+1, end=" ")
-
 
 
 # 와 어렵다... silver Class...
