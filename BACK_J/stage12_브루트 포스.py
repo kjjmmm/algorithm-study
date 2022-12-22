@@ -115,5 +115,20 @@ def ques4():
 
     print(min(result_arr));
 
-ques4()
+def ques5():
+    n = int(input())
+
+    i=666
+    cnt=0
+
+    while(True):
+        if '666' in str(i):
+            cnt+=1
+            if cnt==n:
+                print(i) 
+                break
+            i+=1
+        else :
+            i+=1
+ques5()
 
