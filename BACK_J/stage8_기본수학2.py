@@ -40,4 +40,32 @@ def ques2():
         print(sum(result))
         print(result[0])
 
-ques2()
+def ques3():
+    import sys
+    input = sys.stdin.readline
+    n = int(input())
+
+    breaker=True
+    tmp=n
+
+    while(breaker):
+
+        if tmp < 4 : 
+
+            if tmp==1:
+                break
+
+            print(tmp) 
+            break
+
+        for i in range(2,tmp):
+
+            if tmp % i==0:
+                print(i)
+                tmp=tmp//i
+                break;
+            if i==tmp-1:
+                breaker=False
+                print(tmp)
+
+ques3()
