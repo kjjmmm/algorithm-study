@@ -68,4 +68,11 @@ def ques3():
                 breaker=False
                 print(tmp)
 
-ques3()
+def ques4():
+    a, b = map(int, input().split())
+
+    for i in range(a, b+1):
+        
+
+
+ques4()

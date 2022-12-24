@@ -48,4 +48,12 @@ def ques3():
         c = a - dif
     print(f"{b}/{c}")
 
-ques3()
+def ques8():
+
+    a, b = map(int, input().split())
+
+    print(a+b)
+
+
+
+ques8()
