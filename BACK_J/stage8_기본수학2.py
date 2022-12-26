@@ -125,14 +125,35 @@ def ques5():
 
 def ques6():
     import sys
+    from itertools import combinations
     input = sys.stdin.readline
     
     arr = [True]*(10001)
     c = int(len(arr)**0.5 + 1)
+    arr[1]=False
 
     for i in range(2, c):
         if arr[i]==True:
+            for j in range(2*i, 10001, i):
+                arr[j]=False
 
-    
-    
+    n = int(input())
+
+    for i in range(n):
+        tmp_num = int(input())
+        tmp_arr = arr[:tmp_num+1]
+        arr2=[] #소수 담을 배열
+        for j in range(2, len(tmp_arr)):
+            if tmp_arr[j]==True:
+                arr2.append(j)
+        arr3 = arr2*2
+        result_arr=[]
+        for k in combinations(arr3,2):
+            if sum(k)==tmp_num :
+                result_arr.append(k)
+        id = round(len(result_arr)/2-1)
+        result = result_arr[id]
+        result = list(map(str, result))
+        print(' '.join(result))
+        
 ques6()
