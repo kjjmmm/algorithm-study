@@ -68,4 +68,19 @@ def ques3():
                 breaker=False
                 print(tmp)
 
-ques3()
+def ques4(): 
+    #소수의 범위가 주어질때 가장 빠른 에라토스테네스의 체.
+    a, b = map(int, input().split())
+    c = int(b**(0.5))+1
+
+    arr = [True] * (b+1)
+    arr[1]=False
+
+    for i in range(2, c):
+        if arr[i] == True:
+            for j in range(2*i, b+1, i):
+                arr[j]=False
+    for i in range(a, b+1):
+        if arr[i]==True : print(i)
+
+ques4()
