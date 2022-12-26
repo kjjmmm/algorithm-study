@@ -83,4 +83,56 @@ def ques4():
     for i in range(a, b+1):
         if arr[i]==True : print(i)
 
-ques4()
+def ques5():
+    import sys
+    input = sys.stdin.readline
+
+    arr = [True] * (123456*2 + 1)
+    c= int(len(arr)**0.5 + 1 )
+    arr[1]=False
+    for i in range(2, c):
+        if arr[i]==True:
+            for j in range(2*i, len(arr), i):
+                    arr[j]=False
+    while(True):
+
+        n = int(input())
+        if n == 0 : break
+
+        print(sum(arr[n+1:n*2+1]))
+# 소수 판별 -- 시간 초과
+# def ques5_2():
+#     import sys
+#     input = sys.stdin.readline
+
+#     def is_sos(x):
+
+#         if x == 1 : return 1
+#         c = int(x ** 0.5) +  1
+#         for i in range(2,c):
+#             if x % i == 0 : return False
+
+#         return 1
+#     while(True):
+#         n = int(input())
+#         if n == 0 : break
+
+#         cnt=0
+#         for i in range(n+1, 2*n+1):
+#             if 1 == is_sos(i):
+#                 cnt+=1
+#         print(cnt)
+
+def ques6():
+    import sys
+    input = sys.stdin.readline
+    
+    arr = [True]*(10001)
+    c = int(len(arr)**0.5 + 1)
+
+    for i in range(2, c):
+        if arr[i]==True:
+
+    
+    
+ques6()
