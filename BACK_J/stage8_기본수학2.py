@@ -125,7 +125,6 @@ def ques5():
 
 def ques6():
     import sys
-    from itertools import combinations
     input = sys.stdin.readline
     
     arr = [True]*(10001)
@@ -139,21 +138,50 @@ def ques6():
 
     n = int(input())
 
-    for i in range(n):
-        tmp_num = int(input())
-        tmp_arr = arr[:tmp_num+1]
-        arr2=[] #소수 담을 배열
-        for j in range(2, len(tmp_arr)):
-            if tmp_arr[j]==True:
-                arr2.append(j)
-        arr3 = arr2*2
-        result_arr=[]
-        for k in combinations(arr3,2):
-            if sum(k)==tmp_num :
-                result_arr.append(k)
-        id = round(len(result_arr)/2-1)
-        result = result_arr[id]
-        result = list(map(str, result))
-        print(' '.join(result))
+    for _ in range(n):
+
+        a = int(input())
+        c = int(a**0.5+1)
+
+        result=[]
+        for i in range(2,a):
+            if arr[i]==True and arr[a-i]==True:
+                result.append([abs((a-i)-i), i, a-i])
+        result.sort(key=lambda x : x[0])
+        print(result[0][1], result[0][2])
+
+def ques6_2():
+    import sys
+    input = sys.stdin.readline
+
+    # 소수 판별 기본
+    def is_prime(n):
+        if n==1 :
+            return False
+        for i in range(2, int(n**0.5+1)):
+            if n % i == 0 :
+                return False
+        return True
+    
+    rep = int(input())
+
+    for _ in range(rep):
+        n = int(input())
+        a = n//2
+        b = n//2
+
+        while True:
+            if is_prime(a) and is_prime(b):
+                print(str(a),str(b))
+                break
+            else:
+                a-=1
+                b+=1
+
+
+
+
+
+        
         
 ques6()
