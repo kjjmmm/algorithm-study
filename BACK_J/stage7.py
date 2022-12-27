@@ -48,6 +48,17 @@ def ques3():
         c = a - dif
     print(f"{b}/{c}")
 
+def ques4():
+    import math
+    a, b, v = map(int, input().split())
+
+    day=0
+    h = 0
+    v-=b #한번만큼 빼줌
+
+    print(math.ceil(v/(a-b)))
+
+
 def ques6():
     
     t = int(input()) #TEST CASE
@@ -82,4 +93,4 @@ def ques8():
 
 
 
-ques6()
+ques4()
