@@ -58,7 +58,24 @@ def ques4():
 
     print(math.ceil(v/(a-b)))
 
+def ques5():
+    import sys
+    import math
+    input = sys.stdin.readline
 
+    n = int(input())
+    
+    for _ in range(n):
+        h, w, r = map(int, input().split())
+        n1 = r%h
+        if n1==0 : 
+            n1=h
+        n2 = math.ceil(r/h)
+        if n2 < 10 : 
+            print(str(n1)+'0'+str(n2))
+        else:
+            print(str(n1)+str(n2))
+        
 def ques6():
     
     t = int(input()) #TEST CASE
@@ -93,4 +110,4 @@ def ques8():
 
 
 
-ques4()
+ques5()
