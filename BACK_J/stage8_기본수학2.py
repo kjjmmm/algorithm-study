@@ -179,9 +179,22 @@ def ques6_2():
                 b+=1
 
 
+def ques7():
 
+    n = int(input())
+    
+    cnt=0
+    while(n >= 0):
+        if n % 5 == 0 :
+            cnt += n // 5
+            break
 
+        n -= 3
+        cnt+=1
 
-        
-        
-ques6()
+    if n < 0 :
+        print(-1)
+    else : 
+        print(cnt)
+ 
+ques7()
