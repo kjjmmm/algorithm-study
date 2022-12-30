@@ -15,8 +15,25 @@ def ques1():
             result.append(0)
 
     print(*result)
-            
-ques1()
+
+
+def ques2():
+    import sys
+    input = sys.stdin.readline
+
+    a, b = map(int, input().split())
+
+    arr=set()
+    for i in range(a):
+        arr.add(input())
+    cnt=0
+    for i in range(b):
+        if input() in arr:
+            cnt+=1
+
+    print(cnt)
+        
+ques2()
         
 
 
