@@ -39,20 +39,30 @@ def ques3():
         arr  = isPalindrome(s,cnt)
         print(' '.join(list(map(str, arr))))
 
-def ques4():
+def merge_sort(s, e):
+    if s > e:
+        return []
+    if s == e:
+        return [arr[s]]
+    mid = (s + e) // 2
+    l = merge_sort(s, mid)
+    r = merge_sort(mid + 1, e)
+    lr = l + r
+    lr.sort()
+    global cnt
+    if cnt + (e - s + 1) < m:
+        cnt += e - s + 1
+        return lr
+    else:
+        print(lr[m - cnt - 1])
+        exit()
 
-    def merge_sort(arr):
-        if len(arr) < 2 :
-            return arr
-        mid = len(arr) // 2
-        low_arr = merge_sort(arr[:mid])
-        high_arr  = merge_sort(arr[mid:])
 
-        merged_arr = []
-        l = h = 0
-
-        while l < len(low_arr) and h < len(high_arr):
-            
+n, m = map(int, input().split())
+arr = [0] + list(map(int, input().split()))
+cnt = 0
+merge_sort(1, n)
+print(-1)
 
 
-ques4()
+
