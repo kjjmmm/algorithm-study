@@ -32,8 +32,15 @@ def ques2():
             cnt+=1
 
     print(cnt)
+def ques6():
+    a, b = map(int, input().split())
+    A = set(map(int, input().split()))
+    B = set(map(int, input().split()))
+
+    print(len(A - B) + len(B - A))
+
         
-ques2()
+ques6()
         
 
 
