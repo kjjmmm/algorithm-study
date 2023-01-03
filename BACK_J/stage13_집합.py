@@ -39,7 +39,25 @@ def ques6():
 
     print(len(A - B) + len(B - A))
 
-        
+
+def ques5():
+    import sys
+    input = sys.stdin.readline
+    a, b = map(int, input().split())
+
+    arr1 = set()
+    for i in range(a):
+        arr1.add(input())
+    arr2 = set()
+    for i in range(b):
+        arr2.add(input())
+    arr3 = list(arr1 & arr2)
+    arr3.sort()
+    print(len(arr3))
+    for i in arr3:
+        print(i, end='')
+
+
 def ques7():
     s = input()
     arr = set()
@@ -48,7 +66,7 @@ def ques7():
             arr.add(s[i:j])
     print(len(arr))
 
-ques7()
+ques5()
         
 
 
