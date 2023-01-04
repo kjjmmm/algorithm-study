@@ -97,4 +97,50 @@ def ques5():
     st1.extend(reversed(st2))
     print(''.join(st1))
 
-ques5()
+def ques6():
+    import sys
+    input = sys.stdin.readline
+    n = int(input())
+    que = []
+    for i in range(n):
+        cmm = input().split()
+        if cmm[0] == 'push':
+            que.append(cmm[1])
+        elif cmm[0] =='front':
+            if que:
+                print(que[0])
+            else:
+                print(-1)
+        elif cmm[0] == 'back':
+            if que:
+                print(que[-1])
+            else:
+                print(-1)
+        elif cmm[0] == 'size':
+            print(len(que))
+        elif cmm[0] == 'pop':
+            if que:
+                print(que[0])
+                que.pop(0)
+            else:
+                print(-1)
+        elif cmm[0] == 'empty':
+            if que:
+                print(0)
+            else :
+                print(1)
+                
+def ques7():
+    a, b = map(int,input().split())
+    arr = [i for i in range(1,a+1)]
+    result = []
+    
+    cnt=0
+    for i in range(a):
+        cnt += b-1
+        if cnt >= len(arr):
+            cnt = cnt%len(arr)
+        result.append(str(arr.pop(cnt)))
+    print('<'+', '.join(result)+'>')
+
+ques7()
