@@ -46,4 +46,55 @@ def ques3():
         if len(s)>0 : print("NO")
         elif len(s)==0: print("YES")
 
-ques3()
+def ques4():
+    # 문제가 이해가안됨...스택 수열
+    import sys
+    input = sys.stdin.readline
+    count = 1
+    temp = True
+    stack = []
+    op = []
+
+    n = int(input())
+    for i in range(n):
+    
+        num = int(input())
+        while count <= num:
+            stack.append(count)
+            op.append('+')
+            count+=1
+        if stack[-1] == num:
+            stack.pop()
+            op.append('-')
+        else :
+            temp = False
+            break
+    if temp == False:
+        print("NO")
+    else:
+        for i in op:
+            print(i)
+
+def ques5():
+    import sys
+    input = sys.stdin.readline
+    st1 = list(input().rstrip())
+    st2=[]
+    for _ in range(int(input())):
+        cmm = input().split()
+
+        if cmm[0]=='L':
+            if st1:
+                st2.append(st1.pop())
+        elif cmm[0]=='D':
+            if st2:
+                st1.append(st2.pop())
+        elif cmm[0]=='B':
+            if st1:
+                st1.pop()
+        elif cmm[0]=='P':
+            st1.append(cmm[1])    
+    st1.extend(reversed(st2))
+    print(''.join(st1))
+
+ques5()
