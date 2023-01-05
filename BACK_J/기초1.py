@@ -143,4 +143,46 @@ def ques7():
         result.append(str(arr.pop(cnt)))
     print('<'+', '.join(result)+'>')
 
-ques7()
+def ques8():
+    import sys
+    input = sys.stdin.readline
+
+    deq = []
+    n = int(input())
+    for i in range(n):
+
+        cmmd = input().split()
+
+        if cmmd[0] == 'push_back':
+            deq.append(cmmd[1])
+        elif cmmd[0] == 'push_front':
+            deq.insert(0,cmmd[1])
+        elif cmmd[0] == 'front':
+            if deq:
+                print(deq[0])
+            else:
+                print(-1)
+        elif cmmd[0] == 'back':
+            if deq:
+                print(deq[-1])
+            else:
+                print(-1)
+        elif cmmd[0] == 'size':
+            print(len(deq))
+        elif cmmd[0] == 'pop_front':
+            if deq:
+                print(deq.pop(0))
+            else:
+                print(-1)
+        elif cmmd[0] == 'pop_back':
+            if deq:
+                print(deq.pop(-1))
+            else:
+                print(-1)
+        elif cmmd[0] == 'empty':
+            if deq:
+                print(0)
+            else:
+                print(1)
+
+ques8()
