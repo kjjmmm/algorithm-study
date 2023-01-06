@@ -185,4 +185,38 @@ def ques8():
             else:
                 print(1)
 
-ques8()
+def ques9():
+
+    s = input()
+
+    tmp_str = ''
+    result = ''
+    rev = True
+    for i in range(len(s)):
+        if s[i] == '<':
+            rev=False
+            result+=tmp_str[::-1]
+            result+='<'
+            tmp_str=''
+        elif s[i] == '>':
+            rev=True
+            result+=tmp_str
+            tmp_str=''
+            result+='>'
+        elif s[i] == ' ':
+            if rev==True:
+                result+=tmp_str[::-1]
+            else:
+                result+=tmp_str
+            result+=' '
+            tmp_str=''
+        elif i == (len(s)-1):
+            if s[i]=='>':
+                result+='>'
+            else :
+                tmp_str+=s[i]
+                result+=tmp_str[::-1]
+        else:
+            tmp_str+=s[i]
+    print(result)
+ques9()
