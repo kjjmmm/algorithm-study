@@ -219,4 +219,3 @@ def ques9():
         else:
             tmp_str+=s[i]
     print(result)
-ques9()
