@@ -219,3 +219,23 @@ def ques9():
         else:
             tmp_str+=s[i]
     print(result)
+
+def ques10():
+    s = input().replace("()","|")
+    s = s.strip("|")
+
+    result=0
+    line=0
+    
+    for i in range(len(s)):
+        if s[i]=='(':
+            line+=1
+        elif s[i]=="|":
+            result+=line
+        elif s[i]==")":
+            result+=1
+            line-=1
+
+    print(result)
+
+ques10()
