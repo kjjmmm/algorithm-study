@@ -185,24 +185,72 @@ def ques8():
             else:
                 print(1)
 
-# 단어 뒤집기 2
 def ques9():
+
     s = input()
 
-    result=''
-    temp_str = ''
-    for i in s:
-        if i == '<':
+    tmp_str = ''
+    result = ''
+    rev = True
+    for i in range(len(s)):
+        if s[i] == '<':
+            rev=False
+            result+=tmp_str[::-1]
+            result+='<'
+            tmp_str=''
+        elif s[i] == '>':
+            rev=True
+            result+=tmp_str
+            tmp_str=''
+            result+='>'
+        elif s[i] == ' ':
+            if rev==True:
+                result+=tmp_str[::-1]
+            else:
+                result+=tmp_str
+            result+=' '
+            tmp_str=''
+        elif i == (len(s)-1):
+            if s[i]=='>':
+                result+='>'
+            else :
+                tmp_str+=s[i]
+                result+=tmp_str[::-1]
+        else:
+            tmp_str+=s[i]
+    print(result)
 
-            temp_str=''
-        elif i =='>':
-            temp_str=''
-        elif i == ' ':
-            temp_str=''
+def ques10():
+    s = input().replace("()","|")
+    s = s.strip("|")
 
+    result=0
+    line=0
+    
+    for i in range(len(s)):
+        if s[i]=='(':
+            line+=1
+        elif s[i]=="|":
+            result+=line
+        elif s[i]==")":
+            result+=1
+            line-=1
 
+    print(result)
 
-            
+def ques11():
+    import sys
+    n = int(input())
+    A = list(map(int, sys.stdin.readline().split()))
+    answer = [-1] * n
+    stack = []
 
+    stack.append(0)
+    for i in range(1, n):
+        while stack and A[stack[-1]] < A[i]:
+            answer[stack.pop()] = A[i]
+        stack.append(i)
 
-ques9()
+    print(*answer)
+
+ques11()
