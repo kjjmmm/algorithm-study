@@ -238,4 +238,26 @@ def ques10():
 
     print(result)
 
-ques10()
+def ques11():
+    n = input()
+    arr = list(map(int, input().split()))
+
+    mx = max(arr)
+    result = []
+    for i in range(len(arr)-1):
+
+        if mx == arr[i]:
+            result.append(-1)
+            continue
+
+        for j in range(i+1,len(arr)):
+            if arr[i] < arr[j] :
+                result.append(int(arr[j]))
+                break
+            elif j==len(arr)-1:
+                result.append(-1)
+            
+    result.append(-1)
+    print(*result)
+
+ques11()
