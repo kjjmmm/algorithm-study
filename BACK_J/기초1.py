@@ -238,19 +238,22 @@ def ques10():
 
     print(result)
 
-def ques11():
-    import sys
-    n = int(input())
-    A = list(map(int, sys.stdin.readline().split()))
-    answer = [-1] * n
-    stack = []
 
-    stack.append(0)
-    for i in range(1, n):
-        while stack and A[stack[-1]] < A[i]:
-            answer[stack.pop()] = A[i]
+def ques11():
+    # 골드 클라스에 놀라 자빠진다.
+    # 왜 stack 은 index로 저장해야하는지 알아보자.
+    import sys
+    input = sys.stdin.readline
+    n = int(input())
+    arr = list(map(int, input().split()))
+    stack = []
+    result =  [-1 for i in range(n)]
+
+    for i in range(n):
+        while stack and arr[stack[-1]] < arr[i]:
+            result[stack.pop()]=arr[i]
         stack.append(i)
 
-    print(*answer)
+    print(*result)
 
 ques11()
