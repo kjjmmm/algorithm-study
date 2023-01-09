@@ -239,25 +239,18 @@ def ques10():
     print(result)
 
 def ques11():
-    n = input()
-    arr = list(map(int, input().split()))
+    import sys
+    n = int(input())
+    A = list(map(int, sys.stdin.readline().split()))
+    answer = [-1] * n
+    stack = []
 
-    mx = max(arr)
-    result = []
-    for i in range(len(arr)-1):
+    stack.append(0)
+    for i in range(1, n):
+        while stack and A[stack[-1]] < A[i]:
+            answer[stack.pop()] = A[i]
+        stack.append(i)
 
-        if mx == arr[i]:
-            result.append(-1)
-            continue
-
-        for j in range(i+1,len(arr)):
-            if arr[i] < arr[j] :
-                result.append(int(arr[j]))
-                break
-            elif j==len(arr)-1:
-                result.append(-1)
-            
-    result.append(-1)
-    print(*result)
+    print(*answer)
 
 ques11()
