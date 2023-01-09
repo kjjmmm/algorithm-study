@@ -185,4 +185,24 @@ def ques8():
             else:
                 print(1)
 
-ques8()
+# 단어 뒤집기 2
+def ques9():
+    s = input()
+
+    result=''
+    temp_str = ''
+    for i in s:
+        if i == '<':
+
+            temp_str=''
+        elif i =='>':
+            temp_str=''
+        elif i == ' ':
+            temp_str=''
+
+
+
+            
+
+
+ques9()
