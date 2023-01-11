@@ -256,4 +256,36 @@ def ques11():
 
     print(*result)
 
-ques11()
+# 나머지
+def ques12():
+    A, B, C = map(int, input().split())
+
+    print((A+B)%C)
+    print(((A%C) + (B%C))%C)
+    print((A*B)%C)
+    print(((A%C) * (B%C))%C)
+
+# 최대공약수와 최소공배수
+def ques13():
+    a, b = map(int, input().split())
+
+    for i in range(min(a,b),0,-1):
+        if a%i==0 and b%i==0:
+            print(i)
+            print(int(a*b/i))
+            break
+
+# 최소공배수 - 뉴클리드 호제법 공부
+def ques14():
+    import sys
+    import math
+    input = sys.stdin.readline
+    n = int(input())
+
+    for i in range(n):
+        
+        a, b = map(int,input().split())
+        print(math.lcm(a,b))
+        
+ques14()
+
