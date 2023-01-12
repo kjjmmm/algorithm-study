@@ -286,6 +286,46 @@ def ques14():
         
         a, b = map(int,input().split())
         print(math.lcm(a,b))
-        
-ques14()
+
+# 오등큰수
+def ques15():
+    # n = int(input())
+    # input_arr = list(map(int,input().split()))
+
+    # arr=[0]*1000001
+
+    # result=[]
+    # for i in range(len(input_arr)):
+    #     arr[input_arr[i]]+=1
+
+    # for i in range(len(input_arr)-1):
+    #     for j in range(i+1,len(input_arr)):
+    #         if arr[input_arr[i]]<arr[input_arr[j]]:
+    #             result.append(input_arr[j])
+    #             break
+    #         elif j==len(input_arr)-1:
+    #             result.append(-1)
+    # result.append(-1)
+    # print(*result)
+
+    import sys
+    input = sys.stdin.readline
+
+    from collections import Counter
+
+    n = int(input())
+    aa = list(map(int,input().split()))
+    ff = Counter(aa)
+    stack = []
+    ngf = [-1] * n
+
+    for i in range(n):
+        while stack and ff[aa[stack[-1]]] < ff[aa[i]]:
+            ngf[stack.pop()] = aa[i]
+        stack.append(i)
+
+    print(*ngf)
+
+ques15()
+
 
