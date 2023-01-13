@@ -324,7 +324,7 @@ def ques15():
             ngf[stack.pop()] = aa[i]
         stack.append(i)
 
-    print(*ngf)
+    print(*ngf) 
 
 ques15()
 
