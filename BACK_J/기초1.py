@@ -326,6 +326,35 @@ def ques15():
 
     print(*ngf) 
 
-ques15()
+def ques16():
+    import sys
+    input = sys.stdin.readline
+    def is_prime(n):
+        if n == 1 :
+            return False
+        for i in range(2, int(n**0.5)+1):
+            if n % i == 0:
+                return False
+        return True
+
+    breaker=True
+    while breaker:
+        num = int(input())
+        if num == 0 : 
+            breaker=False 
+            break
+        a, b = 3, num-3
+        while b > 0 :
+            if a > b :
+                print('"Goldbach\'s conjecture is wrong."')
+                break
+            if is_prime(a) and is_prime(b):
+                print(f'{num} = {a} + {b}')
+                break
+            else :
+                a += 1
+                b -= 1
+        
+ques16()
 
 
