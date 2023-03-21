@@ -355,6 +355,22 @@ def ques16():
                 a += 1
                 b -= 1
         
-ques16()
+def ques17():
+    result=1
+    n = int(input())
+    for i in range(n,0,-1):
+        result*=i
+    str_result=str(result)
+
+    cnt=0
+    for i in range(len(str_result)-1,0,-1):
+        if str_result[i]=='0':
+            cnt+=1
+        else: break
+    print(cnt)
+
+ques17()
+
+
 
 
