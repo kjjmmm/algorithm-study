@@ -1,3 +1,7 @@
+from random import randint
+import time
+
+
 # 거스름돈
 
 def ques1(n):
@@ -53,4 +57,25 @@ def ques3():
     
     print(max(arr))
 
-ques3()
+# 1이 될 때까지
+def ques4():
+
+    n, k = map(int,input().split())
+
+    start_time = time.time()
+
+    cnt=0
+
+    while(True):
+
+        if n == 1 :
+            break
+        if n % k == 0 :
+            n//=k
+            cnt+=1
+        else :
+            n-=1
+            cnt+=1
+
+    end_time = time.time()
+    print(cnt, start_time-end_time)

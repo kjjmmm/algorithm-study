@@ -31,3 +31,7 @@ array.sort()
 
 end_time = time.time() # 측정 종료
 print("기본 정렬 라이브러리 성능 측정 :", end_time - start_time) # 수행 시간 출력
+
+# ---------
+
+# N = 1,000,000 이고 시간 복잡도 NlogN 일 경우 2천만번 수행 = 1초
