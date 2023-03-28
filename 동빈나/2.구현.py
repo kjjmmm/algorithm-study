@@ -72,4 +72,60 @@ def ques3():
 
     print(cnt)
 
-ques3()
+# 게임 개발
+def ques4():
+    n,m = map(int,input().split())
+
+    x,y,d = map(int,input().split())
+
+    game_map=[]
+    for i in range(m):
+        game_map.append( list(map(int,input().split())) )
+
+    rot = 0
+    cnt = 1
+    game_map[x][y]=1
+    while(True):
+
+        if rot > 4 : break
+
+        if d == 0:
+            if y-1 < 0 or game_map[x][y-1] == 1 :
+                d = 3
+                rot+=1
+            else : 
+                y-=1
+                game_map[x][y]=1
+                cnt+=1
+                print(x, y, "입력")
+        elif d == 1:
+            if x+1 > n or game_map[x+1][y] == 1 :
+                d = 0
+                rot+=1
+            else : 
+                x+=1
+                game_map[x][y]=1
+                cnt+=1
+                print(x, y, "입력")
+        elif d == 2:
+            if y+1 > m or game_map[x][y+1] == 1 :
+                d = 1
+                rot+=1
+            else : 
+                y+=1
+                game_map[x][y]=1             
+                cnt+=1
+                print(x, y, "입력")
+        elif d == 3:
+            if x-1 < 0 or game_map[x-1][y] == 1 :
+                d = 2
+                rot+=1
+            else :
+                x-=1
+                game_map[x][y]=1
+                cnt+=1
+                print(x, y, "입력")
+    print(game_map)
+    print(cnt)
+
+ques4()
