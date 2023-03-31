@@ -15,4 +15,22 @@ def ques1():
             cnt += b // arr[i]
             b = b % arr[i]
     print(cnt)
-ques1()
+
+
+def ques2():
+    n = int(input())
+    arr = list(map(int,input().split()))
+
+    arr.sort()
+    sum=0
+    temp_sum=0
+    for i in range(len(arr)):
+
+        temp_sum+=arr[i]
+        sum+=temp_sum
+    print(sum)
+
+ques2()
+
+
+        
