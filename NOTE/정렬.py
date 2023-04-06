@@ -44,4 +44,21 @@ print("before: ", array)
 selection_sort(array)
 print("after", array)
 
+# 이것은 삽입 정렬이다.
+# - 삽입정렬의 시간복잡도는 O(N²)로, 앞 글에서 배운 선택정렬과 비슷한 시간이 소요된다. 
+# - 하지만, 삽입정렬은 데이터가 정렬이 되어있는 경우 매우 빠르게 동작하며, 가장 빠른 경우 O(N)의 복잡도를 가진다.
+# - 이어서 배울 퀵 정렬 알고리즘과 비교했을 때에도, 일반적으로 퀵정렬이 효율적이나 데이터가 정렬되어있을 경우 삽입정렬이 더 효율적이다. 
+
+arr = [9,8,7,6,5,4,3,2,1]
+
+def insertion_sort(arr):
+  for i in range(1,len(arr)):
+    for j in range(i,0,-1):
+      if arr[j-1] > arr[j] :
+        arr[j-1], arr[j] = arr[j], arr[j-1]
+  return arr
+
+print(insertion_sort(arr))
+      
+
 
