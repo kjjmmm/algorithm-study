@@ -47,40 +47,80 @@ def factorial_recursive(n):
 # print('반복적으로 구현',factorial_iterative(5))
 # print('재귀적으로 구현',factorial_recursive(5))
 
+# # DFS 실전 문제 음료수 얼려먹기
 
-# DFS 실전 문제 음료수 얼려먹기
+# n, m = map(int,input().split())
 
-n, m = map(int,input().split())
+# graph = []
+# for i in range(n):
+#     graph.append(list(map(int,input())))
+
+# # 입력 및 그래프 입력 받기.
+
+# def dfs(x,y):
+#     # 주어진 범위를 벗어나는 경우에는 즉시 종료
+#     if x <= -1 or x >= n or y <= -1 or y >=m :
+#         return False
+    
+#     # 현재 노트를 아직 방문하지 않았다면
+#     if graph[x][y] == 0:
+#         # 해당 노드 방문 처리
+#         graph[x][y] = 1
+        
+#         # 상, 하, 좌, 우의 위치도 모두 재귀적으로 호출
+#         dfs(x-1,y)
+#         dfs(x,y-1)
+#         dfs(x+1,y)
+#         dfs(x,y+1)
+#         return True
+#     return False
+
+# result = 0
+
+# for i in range(n):
+#     for j in range(m):
+#         # 현재 위치에서 DFS 수행
+#         if dfs(i,j) == True:
+#             result += 1
+
+# print(result)
+
+
+# BFS 미로 찾기
+
+from collections import deque
+
+n, m = map(int, input().split())
 
 graph = []
 for i in range(n):
-    graph.append(list(map(int,input())))
+  graph.append(list(map(int,input())))
 
-def dfs(x,y):
-    # 주어진 범위를 벗어나는 경우에는 즉시 종료
-    if x <= -1 or x >= n or y <= -1 or y >=m :
-        return False
-    
-    # 현재 노트를 아직 방문하지 않았다면
-    if graph[x][y] == 0:
-        # 해당 노드 방문 처리
-        graph[x][y] = 1
-        
-        # 상, 하, 좌, 우의 위치도 모두 재귀적으로 호출
-        dfs(x-1,y)
-        dfs(x,y-1)
-        dfs(x+1,y)
-        dfs(x,y+1)
-        return True
-    return False
+# 이동할 네 방향 정의(상, 하, 좌, 우)
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
 
-result = 0
+def bfs(x,y):
+  queue = deque()
+  queue.append( (x,y) )
+  # 큐가 빌때까지 반복
+  while queue:
+    x, y = queue.popleft()
+    for i in range(4):
+      nx = x + dx[i]
+      ny = y + dy[i]
 
-for i in range(n):
-    for j in range(m):
-        # 현재 위치에서 DFS 수행
-        if dfs(i,j) == True:
-            result += 1
+      if nx < 0 or ny < 0 or nx >= n or ny >= m :
+        continue
+      if graph[nx][ny] == 0:
+        continue
+      if graph[nx][ny] == 1:
+        graph[nx][ny] = graph[x][y] + 1
+        queue.append((nx,ny))
+  return graph[n-1][m-1]
 
-print(result)
+print(bfs(0,0))
+
+
+
 
