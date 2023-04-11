@@ -40,9 +40,9 @@ def selection_sort(array):
         array[i], array[min_index] = array[min_index], array[i] # 가장 작은수와 index 를 이용하여 변경
         print(array[:i+1])
 
-print("before: ", array)
-selection_sort(array)
-print("after", array)
+# print("before: ", array)
+# selection_sort(array)
+# print("after", array)
 
 # 이것은 삽입 정렬이다.
 # - 삽입정렬의 시간복잡도는 O(N²)로, 앞 글에서 배운 선택정렬과 비슷한 시간이 소요된다. 
@@ -58,7 +58,18 @@ def insertion_sort(arr):
         arr[j-1], arr[j] = arr[j], arr[j-1]
   return arr
 
-print(insertion_sort(arr))
-      
+# print(insertion_sort(arr))
 
+# 삽입 정렬 2 - 최적화
 
+def best_insertion_sort(arr):
+   
+    for i in range(1, len(arr)):
+        j = i
+        # 정렬 할것이 있으면 계속한다. 하지만 앞에 더 작은 수가 있다면 정렬할 필요가 없겠지 -> while 문 False 탈출
+        while j > 0 and arr[j - 1] > arr[j]:
+            arr[j - 1], arr[j] = arr[j], arr[j - 1]
+            j -= 1
+    return arr
+
+# print(best_insertion_sort(arr))
