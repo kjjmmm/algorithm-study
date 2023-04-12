@@ -75,3 +75,53 @@ def best_insertion_sort(arr):
     return arr
 
 # print(best_insertion_sort(arr))
+
+
+array = [5,7,9,0,3,1,6,2,4,8]
+
+# 퀵 정렬
+# 시간 복잡도 O(NlogN) - 평균 / 최악 N**2
+def quick_sort(array, start, end):
+   
+    if start >= end : return # 원소가 1개인 경우
+    pivot = start # 피벗은 첫 요소
+    left, right = start + 1, end
+
+    while left <= right:
+        # 피벗보다 큰 데이터를 찾을 때까지 반복 - 피벗보다 큰 데이터를 찾거나, left 가 end 보다 커질때 탈출
+        while left <= end and array[left] <= array[pivot] :
+            left += 1
+        # 피벗보다 작은 데이터를 찾을 때까지 반복
+        while right > start and array[right] >= array[pivot]:
+            right -= 1
+        # 엇갈렸다면 작은 데이터와 피벗을 교체
+        if left > right :
+            array[right], array[pivot] = array[pivot], array[right]
+        # 엇갈리지 않았다면 작은 데이터와 큰 데이터를 교체
+        else :
+            array[left], array[right] = array[right], array[left]
+    # 재귀
+    quick_sort(array, start, right - 1)
+    quick_sort(array, right+1, end)
+
+# quick_sort(array, 0, len(array) - 1)
+# print('quick',array)
+
+
+# 계수 정렬 - 카운팅 정렬 O(n+k)
+def counting_sort(arr):
+    max_value = max(arr)
+    m = max_value + 1
+
+    count = [0] * m
+    sorted_arr=[]
+
+    for a in arr :
+        count[a] += 1
+
+    for i in range(len(count)):
+        for j in range(count[i]):
+            sorted_arr.append(i)
+    return sorted_arr
+
+print(counting_sort(arr))
